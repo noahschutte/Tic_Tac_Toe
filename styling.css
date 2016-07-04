@@ -7,11 +7,8 @@ header {
 }
 
 td {
-  border: 1px solid black;
-}
-
-.square {
     height: 1.5em;
     width: 1.5em;
     text-align: center;
+    border: 1px solid black;
 }

@@ -3,42 +3,48 @@ function computersTurn(game) {
     var play;
     if (canWinHorizontal(grid)) {
         play = winHorizontal(grid)
-        computerPlays(play, grid)
+        computerPlays(play, game)
     } else if (canWinVertical(grid)) {
         play = winVertical(grid)
-        computerPlays(play, grid)
+        computerPlays(play, game)
     } else if (canWinDiagonal(grid)) {
         play = winDiagonal(grid)
-        computerPlays(play, grid)
+        computerPlays(play, game)
     } else if (canBlockHorizontal(grid)) {
         play = blockHorizontal(grid)
-        computerPlays(play, grid)
+        computerPlays(play, game)
     } else if (canBlockVertical(grid)) {
         play = blockVertical(grid)
-        computerPlays(play, grid)
+        computerPlays(play, game)
     } else if (canBlockDiagonal(grid)) {
         play = blockDiagonal(grid)
-        computerPlays(play, grid)
+        computerPlays(play, game)
     } else {
         play = randomPlay(grid)
-        computerPlays(play, grid)
-    }
-    if (isGameOver(grid)) {
-        game.status = "off"
-        $('#instructions').html('Computer Wins!')
-        game.computerScore += 1;
-        $('#computerScore').html("Computer Score: " + game.computerScore)
-        $('#start-game-button').show();
-    } else if (tieGame(grid)) {
-        game.status = "off"
-        $('#instructions').html('Tie Game!')
-        $('#start-game-button').show();
+        computerPlays(play, game)
     }
 };
 
-function computerPlays(play, grid) {
-    $('#row-' + play[1] + ' #col-' + play[0]).html("O");
-    grid[play[0]][play[1]] = "O";
+function sleep (time) {
+  return new Promise((resolve) => setTimeout(resolve, time));
+}
+
+function computerPlays(play, game) {
+    sleep(500).then(() => {
+        $('#row-' + play[1] + ' .col-' + play[0]).html("O");
+        game.board.grid[play[0]][play[1]] = "O";
+        if (isGameOver(game.board.grid)) {
+            game.status = "off"
+            $('#instructions').html('Computer Wins!')
+            game.computerScore += 1;
+            $('#computerScore').html("Computer Score: " + game.computerScore)
+            $('#start-game-button').show();
+        } else if (tieGame(game.board.grid)) {
+            game.status = "off"
+            $('#instructions').html('Tie Game!')
+            $('#start-game-button').show();
+        }
+    });
 }
 
 function canWinHorizontal(grid) {

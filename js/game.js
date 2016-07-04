@@ -22,13 +22,13 @@ $(document).ready(function() {
         $('#instructions').html('Select a square to play.');
     });
 
-    $('.square').on('click', function(event) {
+    $('td').on('click', function(event) {
         if (game.status === "on") {
             var event = event.target;
-            var square = game.board.grid[event.id.slice(4)][event.parentElement.id.slice(4)]
+            var square = game.board.grid[event.className.slice(4)][event.parentElement.id.slice(4)]
             if (square === 1) {
                 $(event).append('X')
-                game.board.grid[event.id.slice(4)][event.parentElement.id.slice(4)] = "X"
+                game.board.grid[event.className.slice(4)][event.parentElement.id.slice(4)] = "X"
                 $('#instructions').html('');
                 if (isGameOver(game.board.grid)) {
                     game.status = "off"
