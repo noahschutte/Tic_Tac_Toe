@@ -9,16 +9,31 @@
     <script src="js/board.js"></script>
     <script src="js/view.js"></script>
     <script src="js/game.js"></script>
+    <script src="js/computer.js"></script>
+    <script src="js/constraints.js"></script>
   </head>
   <body>
     <header>
       <h1>Tic Tac Toe</h1>
     </header>
+    <p id="instructions"></p>
     <button id="start-game-button">Start Game</button>
     <hr>
     <main>
-      <table id="boardView">
-      </table>
+      <table id="boardView"></table>
+      <div>
+          <p id="humanScore">
+              Human Score: 0
+          </p>
+          <p id="computerScore">
+              Computer Score: 0
+          </p>
+      </div>
+      <div class="contact">
+          <p>A total of 5 hours have been invested building this product.</p>
+          <p>Meet the engineer: <a href="https://www.linkedin.com/in/noahschutte">Noah Schutte</a></p>
+          <p><a href="https://github.com/noahschutte/Tic_Tac_Toe">Admire the code on Github</a></p>
+      </div>
     </main>
   </body>
 </html>

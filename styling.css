@@ -1,8 +1,17 @@
+header {
+    font-size: 10px;
+}
+
+#instructions {
+    font-size: 10px;
+}
+
 td {
-  color: white;
   border: 1px solid black;
 }
 
-.full {
-  color: black;
+.square {
+    height: 1.5em;
+    width: 1.5em;
+    text-align: center;
 }
