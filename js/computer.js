@@ -43,6 +43,8 @@ function computerPlays(play, game) {
             game.status = "off"
             $('#instructions').html('Tie Game!')
             $('#start-game-button').show();
+        } else {
+            $('#instructions').html('It is your turn.')
         }
     });
 }

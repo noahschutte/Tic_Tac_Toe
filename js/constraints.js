@@ -9,7 +9,6 @@ function isGameOver(grid) {
 function isColumnComplete(grid) {
     for (var c = 0; c < 3; c += 1) {
         if (grid[c][0] === "X" && grid[c][1] === "X" && grid[c][2] === "X") {
-            debugger;
             $('.col-' + c).css("background-color", "green")
             return true
         } else if (grid[c][0] === "O" && grid[c][1] === "O" && grid[c][2] === "O") {

@@ -3,6 +3,7 @@ header {
 }
 
 #instructions {
+    height: 1em;
     font-size: 10px;
 }
 
@@ -11,4 +12,8 @@ td {
     width: 1.5em;
     text-align: center;
     border: 1px solid black;
+}
+
+.button-container {
+    height: 1em;
 }
